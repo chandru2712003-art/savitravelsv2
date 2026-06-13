@@ -1,0 +1,111 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-gold: var(--gold);
+  --color-gold-foreground: var(--gold-foreground);
+  --color-navy: var(--navy);
+  --color-navy-foreground: var(--navy-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --font-display: var(--font-display);
+  --font-tamil: var(--font-tamil);
+}
+
+
+:root {
+  --radius: 0.75rem;
+  /* Clean white background like the flyer */
+  --background: oklch(0.99 0.005 220);
+  --foreground: oklch(0.25 0.04 240);
+
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.25 0.04 240);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.25 0.04 240);
+
+  /* Brand TEAL (primary from reference flyer) */
+  --primary: oklch(0.72 0.12 200);
+  --primary-foreground: oklch(0.99 0.005 220);
+  --primary-deep: oklch(0.55 0.1 210);
+
+  /* Dark charcoal navy (header bg from flyer) */
+  --navy: oklch(0.28 0.02 250);
+  --navy-foreground: oklch(0.99 0.005 220);
+
+  /* Gold -> repurposed as bright teal accent */
+  --gold: oklch(0.78 0.14 195);
+  --gold-foreground: oklch(0.22 0.04 250);
+
+  --secondary: oklch(0.96 0.015 200);
+  --secondary-foreground: oklch(0.28 0.04 250);
+  --muted: oklch(0.95 0.01 220);
+  --muted-foreground: oklch(0.5 0.02 240);
+  --accent: oklch(0.93 0.03 200);
+  --accent-foreground: oklch(0.28 0.04 250);
+  --destructive: oklch(0.55 0.24 27);
+  --destructive-foreground: oklch(0.99 0 0);
+  --border: oklch(0.9 0.02 210);
+  --input: oklch(0.93 0.015 210);
+  --ring: oklch(0.72 0.12 200);
+
+  --font-display: "Poppins", "Inter", system-ui, sans-serif;
+  --font-tamil: "Catamaran", "Noto Sans Tamil", "Poppins", system-ui, sans-serif;
+
+  --gradient-hero: linear-gradient(135deg, oklch(0.32 0.03 250) 0%, oklch(0.25 0.02 250) 60%, oklch(0.2 0.02 250) 100%);
+  --gradient-gold: linear-gradient(135deg, oklch(0.78 0.14 195), oklch(0.68 0.13 200));
+  --gradient-cta: linear-gradient(135deg, oklch(0.72 0.12 200), oklch(0.6 0.11 205));
+  --gradient-cream: linear-gradient(180deg, oklch(0.99 0.005 220), oklch(0.94 0.02 200));
+  --shadow-brand: 0 20px 60px -20px color-mix(in oklab, var(--primary) 50%, transparent);
+  --shadow-gold: 0 10px 40px -10px color-mix(in oklab, var(--gold) 60%, transparent);
+}
+
+
+@layer base {
+  * { border-color: var(--color-border); }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-tamil);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4 { font-family: var(--font-tamil); letter-spacing: -0.01em; }
+}
+
+@layer utilities {
+  .bg-gradient-hero { background-image: var(--gradient-hero); }
+  .bg-gradient-gold { background-image: var(--gradient-gold); }
+  .bg-gradient-cta { background-image: var(--gradient-cta); }
+  .shadow-brand { box-shadow: var(--shadow-brand); }
+  .shadow-gold { box-shadow: var(--shadow-gold); }
+  .text-gold { color: var(--gold); }
+  .text-stroke-dark {
+    -webkit-text-stroke: 2px oklch(0.2 0.04 25);
+  }
+}
